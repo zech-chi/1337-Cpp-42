@@ -1,4 +1,4 @@
-NAME = megaphone
+NAME = phonebook
 
 CPP = c++
 
@@ -6,11 +6,11 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -f
 
-SRCS = megaphone.cpp
+SRCS = Contact.cpp PhoneBook.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-all: $(NAME)
+all: $(NAME) clean ########################## to remove
 
 %.o: %.cpp
 	$(CPP) $(FLAGS) -c $< -o $@
