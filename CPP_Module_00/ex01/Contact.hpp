@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 19:47:23 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/15 16:11:42 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/15 17:26:06 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <iostream>
 # include <iomanip>
-# include <string>
-# include <cstdint>
 # include <string>
 
 # define RESET	"\033[0m"
@@ -74,7 +72,7 @@ class Contact {
 
 		/// @brief Retrieves the phone number.
 		/// @return The phone number as a std::string.
-		std::string	getPhoneNumber(void);
+		std::string	getPhoneNumber(void); 
 
 		/// @brief Retrieves the darkest secret.
 		/// @return The darkest secret as a std::string.
