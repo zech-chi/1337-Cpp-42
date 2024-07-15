@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 19:44:24 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/14 10:03:34 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/15 08:11:55 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 # define PHONEBOOK_H
 
 #include "Contact.hpp"
-
-#define RESET	"\033[0m"
-#define YELLOW	"\033[1;33m"
-#define RED		"\033[1;31m"
-#define ORANGE	"\033[38;5;214m"
-#define PURPLE	"\033[35m"
 
 
 class PhoneBook {
@@ -40,17 +34,27 @@ class PhoneBook {
 		/// - "EXIT" to exit the ./phonebook program and the contacts are lost forever!
 		void		getPrompts(void);
 
+		/// Adds a new contact to the phonebook.
+		/// Prompts the user to enter contact details:
+		/// - first name
+		/// - last name
+		/// - nickname
+		/// - phone number
+		/// - darkest secret
+		/// Validates the input and stores the new contact in the phonebook.
+		/// If the phonebook is full, replaces the oldest contact with the new contact.
 		void		add(void);
+
+		/// Displays some informations of all contacts
+		/// Prompts the user to enter the index of the contact they wish to find.
+		/// Displays the contact's details if found, or notifies the user if the contact is not present.
 		void		search(void);
-		void		display1(void);
-		void		display2(void);
+
 
 	private:
-		Contact				_contacts[8];
+		Contact	_contacts[8];
 		uint8_t	_index;
 		uint8_t	_size;
-		// unsigned short int	_index;
-		// unsigned short int	_size;
 };
 
 #endif

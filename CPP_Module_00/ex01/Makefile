@@ -10,7 +10,7 @@ SRCS = Contact.cpp PhoneBook.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-all: $(NAME) clean ########################## to remove
+all: $(NAME)
 
 %.o: %.cpp
 	$(CPP) $(FLAGS) -c $< -o $@

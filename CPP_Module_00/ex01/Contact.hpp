@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 19:47:23 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/14 10:30:30 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/15 08:12:02 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,16 @@
 # define CONTACT_H
 
 # include <iostream>
+# include <iomanip>
 # include <string>
 # include <cstdint>
 # include <string>
+
+#define RESET	"\033[0m"
+#define YELLOW	"\033[1;33m"
+#define RED		"\033[1;31m"
+#define ORANGE	"\033[38;5;214m"
+#define PURPLE	"\033[35m"
 
 class Contact {
 
