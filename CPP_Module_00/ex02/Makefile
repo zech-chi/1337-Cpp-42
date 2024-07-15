@@ -6,11 +6,11 @@
 #    By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 09:32:00 by zech-chi          #+#    #+#              #
-#    Updated: 2024/07/15 13:43:58 by zech-chi         ###   ########.fr        #
+#    Updated: 2024/07/15 13:48:40 by zech-chi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = account
 
 CPP = c++
 
@@ -18,13 +18,13 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -f
 
-SRCS = Contact.cpp PhoneBook.cpp main.cpp
+SRCS = Account.cpp tests.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-%.o: %.cpp Contact.hpp PhoneBook.hpp
+%.o: %.cpp Account.hpp
 	$(CPP) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
