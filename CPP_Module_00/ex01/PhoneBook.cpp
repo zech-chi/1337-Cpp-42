@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 19:45:14 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/15 09:22:44 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/15 16:18:11 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,17 +93,16 @@ void	PhoneBook::add(void)
 	_index = (_index + 1) % 8;
 	if (_size < 8)
 		_size++;
-	std::cout << "index: " << static_cast<int>(_index) << ", size: " << static_cast<int>(_size) << std::endl;
 }
 
 void	desplayBoundary(void)
 {
-	std::cout << PURPLE;
+	std::cout << GREEN;
 	for (uint8_t i = 0; i < 4; i++)
 	{
 		if (i == 0)
 			std::cout << "+";
-		std::cout << "------------+";
+		std::cout << "----------+";
 		if (i == 3)
 			std::cout << std::endl;
 	}
@@ -114,30 +113,27 @@ void	desplayRight(std::string txt, uint8_t width)
 {
 	uint8_t	len;
 	uint8_t	left;
-	uint8_t	right;
 
 	len = txt.length();
-	right = 1;
-	left = width - len - right;
-	std::cout << std:: setw(left) << "" << txt << std::setw(right) << "";
+	left = width - len;
+	std::cout << std:: setw(left) << "" << txt;
 }
 
 void	desplayContent(std::string txt)
 {
 	if (txt.length() <= 10)
-		desplayRight(txt, 12);
+		desplayRight(txt, 10);
 	else 
 	{
-		std::cout << " ";
 		for (int i = 0; i < 9; i++)
 			std::cout << txt.at(i);
-		std::cout << ". ";
+		std::cout << ".";
 	}
 }
 
 void	desplayPipe(void)
 {
-	std::cout << PURPLE;
+	std::cout << GREEN;
 	std::cout << "|";
 	std::cout << RESET;
 }
@@ -170,15 +166,15 @@ void	PhoneBook::search(void)
 
 	/* Display index, first name, last name and nickname */
 	desplayBoundary();
-	std::cout << PURPLE;
+	std::cout << GREEN;
 	std::cout << "|";
-	desplayRight("index", 12);
+	desplayRight("index", 10);
 	std::cout << "|";
-	desplayRight("first name", 12);
+	desplayRight("first name", 10);
 	std::cout << "|";
-	desplayRight("last name", 12);
+	desplayRight("last name", 10);
 	std::cout << "|";
-	desplayRight("nickname", 12);
+	desplayRight("nickname", 10);
 	std::cout << "|" << std::endl;
 	std::cout << RESET;
 	for (uint8_t i = 0; i < _size; i++)
@@ -207,11 +203,11 @@ void	PhoneBook::search(void)
 			index = index * 10 + prompt.at(i) - 48;
 		if (index < 8 && index < _size)
 		{
-			std::cout << PURPLE << "first name    : " << RESET << _contacts[index].getFirstName() << std::endl;
-			std::cout << PURPLE << "last name     : " << RESET << _contacts[index].getLastName() << std::endl;
-			std::cout << PURPLE << "nickname      : " << RESET << _contacts[index].getNickName() << std::endl;
-			std::cout << PURPLE << "phone number  : " << RESET << _contacts[index].getPhoneNumber() << std::endl;
-			std::cout << PURPLE << "darkest secret: " << RESET << _contacts[index].getDarkestSecret() << std::endl;
+			std::cout << GREEN << "first name    : " << RESET << _contacts[index].getFirstName() << std::endl;
+			std::cout << GREEN << "last name     : " << RESET << _contacts[index].getLastName() << std::endl;
+			std::cout << GREEN << "nickname      : " << RESET << _contacts[index].getNickName() << std::endl;
+			std::cout << GREEN << "phone number  : " << RESET << _contacts[index].getPhoneNumber() << std::endl;
+			std::cout << GREEN << "darkest secret: " << RESET << _contacts[index].getDarkestSecret() << std::endl;
 		}
 		else
 			std::cerr << RED "Index " << static_cast<int>(index) << " does not have any contact yet." << RESET << std::endl;
