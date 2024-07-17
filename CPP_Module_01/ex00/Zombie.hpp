@@ -6,13 +6,14 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 21:24:07 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/16 22:10:52 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/17 08:41:35 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ZOMBIE_HPP
 # define ZOMBIE_HPP
 
+# include <cstdlib>
 # include <iostream>
 # include <string>
 
@@ -20,7 +21,7 @@
 # define YELLOW	"\033[1;33m"
 # define RED	"\033[1;31m"
 # define ORANGE	"\033[38;5;214m"
-# define GREEN "\033[32m"
+# define GREEN	"\033[32m"
 
 class	Zombie {
 	

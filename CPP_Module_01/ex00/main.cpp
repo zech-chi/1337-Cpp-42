@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 21:23:51 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/16 22:15:27 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/17 08:37:30 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int main(int ac, char **av)
 		std::cerr << RED << "the program does not take any args!" << RESET << std::endl;
 		return (1);
 	}
+	std::cout << "go to randomChump function" << std::endl;
 	randomChump("jerry");
+	std::cout << "back from randomChump function" << std::endl;
 	heapZombie = newZombie("tom");
 	heapZombie->announce();
 	delete heapZombie;
