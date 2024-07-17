@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 21:24:07 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/17 08:50:54 by zech-chi         ###   ########.fr       */
+/*   Created: 2024/07/17 08:48:07 by zech-chi          #+#    #+#             */
+/*   Updated: 2024/07/17 08:51:44 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ class	Zombie {
 		std::string	_name;
 };
 
-Zombie*	newZombie( std::string name );
-void	randomChump( std::string name );
+Zombie*	zombieHorde( int N, std::string name );
 
 #endif

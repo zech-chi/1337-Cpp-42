@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/16 21:23:54 by zech-chi          #+#    #+#              #
-#    Updated: 2024/07/17 08:55:42 by zech-chi         ###   ########.fr        #
+#    Created: 2024/07/17 08:48:02 by zech-chi          #+#    #+#              #
+#    Updated: 2024/07/17 08:54:02 by zech-chi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -f
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS = main.cpp Zombie.cpp zombieHorde.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
