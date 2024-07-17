@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 21:24:04 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/17 10:30:42 by zech-chi         ###   ########.fr       */
+/*   Created: 2024/07/17 10:20:31 by zech-chi          #+#    #+#             */
+/*   Updated: 2024/07/17 15:34:47 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
 
-Zombie::Zombie(void)
+HumanB::HumanB(const std::string& newName ): name(newName)
 {
-	std::cout << YELLOW << "constructor called" << RESET << std::endl;
+	weapon = NULL;
 }
 
-Zombie::~Zombie(void)
+HumanB::~HumanB( void )
 {
-	std::cout << ORANGE << "destructor called" << RESET << std::endl;
+
 }
 
-void	Zombie::announce(void)
+void	HumanB::setWeapon( Weapon& newWeapon )
 {
-	std::cout << name << GREEN << ": BraiiiiiiinnnzzzZ..." << RESET << std::endl;
+	weapon = &newWeapon;
 }
 
-void	Zombie::setName(std::string newName)
+void	HumanB::attack ( void ) const
 {
-	name = newName;
-}
-
-std::string	Zombie::getName(void)
-{
-	return (name);
+	if (weapon)
+		std::cout << name << " attacks with their " << weapon->getType() << std::endl;
 }

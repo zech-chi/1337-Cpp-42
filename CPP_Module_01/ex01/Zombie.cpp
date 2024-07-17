@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 08:48:04 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/17 08:52:13 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/17 10:31:39 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ Zombie::~Zombie(void)
 
 void	Zombie::announce(void)
 {
-	std::cout << _name << GREEN << ": BraiiiiiiinnnzzzZ..." << RESET << std::endl;
+	std::cout << name << GREEN << ": BraiiiiiiinnnzzzZ..." << RESET << std::endl;
 }
 
 void	Zombie::setName(std::string newName)
 {
-	_name = newName;
+	name = newName;
 }
 
 std::string	Zombie::getName(void)
 {
-	return (_name);
+	return (name);
 }
