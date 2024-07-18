@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:36:29 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/17 18:29:47 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/18 15:36:59 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@
 # define ORANGE	"\033[38;5;214m"
 # define GREEN	"\033[32m"
 
-std::string	sed(std::string line, std::string strFrom, std::string strTo);
+std::string	sed(std::string line, const std::string& strFrom, const std::string& strTo);
 
 #endif

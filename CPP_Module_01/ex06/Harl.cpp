@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 08:45:49 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/18 12:10:47 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/18 15:30:37 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ Harl::~Harl( void )
 void	Harl::complain( std::string level )
 {
 	int	i;
+	int	start;
 	std::string	levels[4] = {
 		"DEBUG",
 		"INFO",
@@ -49,40 +50,29 @@ void	Harl::complain( std::string level )
 	switch (i)
 	{
 		case 0:
-			for (int j = 0; j < 4; j++)
-			{
-				std::cout << "[ " << levels[j] << " ]" << std::endl;
-				(this->*ptrToMemberFunc[j])();
-				std::cout << std::endl;
-			}
+			start = 0;
 			break;
 		case 1:
-			for (int j = 1; j < 4; j++)
-			{
-				std::cout << "[ " << levels[j] << " ]" << std::endl;
-				(this->*ptrToMemberFunc[j])();
-				std::cout << std::endl;
-			}
+			start = 1;
 			break;
 		case 2:
-			for (int j = 2; j < 4; j++)
-			{
-				std::cout << "[ " << levels[j] << " ]" << std::endl;
-				(this->*ptrToMemberFunc[j])();
-				std::cout << std::endl;
-			}
+			start = 2;
 			break;
 		case 3:
-			for (int j = 3; j < 4; j++)
-			{
-				std::cout << "[ " << levels[j] << " ]" << std::endl;
-				(this->*ptrToMemberFunc[j])();
-				std::cout << std::endl;
-			}
+			start = 3;
 			break;
 		default:
 			std::cerr << RED << "[ Probably complaining about insignificant problems ]" << RESET << std::endl;
 	}
+	if (i == -1)
+		return ;
+	for (int j = start; j < 4; j++)
+	{
+		std::cout << "[ " << levels[j] << " ]" << std::endl;
+		(this->*ptrToMemberFunc[j])();
+		std::cout << std::endl;
+	}
+	
 }
 
 void	Harl::debug( void )

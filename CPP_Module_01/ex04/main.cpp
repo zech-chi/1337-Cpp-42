@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:32:05 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/17 18:59:25 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/18 15:45:11 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	main(int ac, char **av) 
 {
-	if (ac != 4)
+	if (ac != 4 || std::string(av[2]).empty())
 	{
 		std::cerr << RED << "Invalid args!" << RESET << std::endl;
-		std::cerr << GREEN << "Valid Args are: ./sed  file_path  str_from  str_to" << RESET << std::endl;
+		std::cerr << GREEN << "Valid Args are: ./sed  file_path  str_from (not empty)  str_to" << RESET << std::endl;
 		return (1);
 	}
 	std::fstream	fileIn(av[1], std::ios::in);
@@ -42,9 +42,10 @@ int	main(int ac, char **av)
 		if (!fileIn.eof())
 			line += "\n";
 		replacedLine = sed(line, av[2], av[3]);
-		// std::cout << replacedLine << std::endl;
+		// std::cout << replacedLine << std::endl;z
 		fileOut << replacedLine;
 	}
 	fileIn.close();
+	fileOut.close();
 	return (0);
 }
