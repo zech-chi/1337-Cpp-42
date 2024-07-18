@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/16 21:23:54 by zech-chi          #+#    #+#              #
-#    Updated: 2024/07/18 13:48:29 by zech-chi         ###   ########.fr        #
+#    Created: 2024/07/18 08:45:57 by zech-chi          #+#    #+#              #
+#    Updated: 2024/07/18 11:53:21 by zech-chi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = harlFilter
 
 CPP = c++
 
@@ -18,9 +18,9 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -f
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS = Harl.cpp main.cpp
 
-HEADERS = Zombie.hpp
+HEADERS = Harl.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
