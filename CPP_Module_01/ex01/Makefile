@@ -6,11 +6,11 @@
 #    By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 08:48:02 by zech-chi          #+#    #+#              #
-#    Updated: 2024/07/17 08:54:02 by zech-chi         ###   ########.fr        #
+#    Updated: 2024/07/18 13:59:38 by zech-chi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = horde_zombies
 
 CPP = c++
 
@@ -20,11 +20,13 @@ RM = rm -f
 
 SRCS = main.cpp Zombie.cpp zombieHorde.cpp
 
+HEADERS = Zombie.hpp
+
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-%.o: %.cpp Zombie.hpp
+%.o: %.cpp $(HEADERS)
 	$(CPP) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
