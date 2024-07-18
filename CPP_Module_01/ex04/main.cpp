@@ -6,23 +6,45 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:32:05 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/17 14:50:08 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/17 18:59:25 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include <fstream>
+#include "sed.hpp"
 
-int	main(int ac, char **av)
+int	main(int ac, char **av) 
 {
-	(void)ac;
-	(void)av;
-
-	std::ifstream file("file.txt");
-	std::string txt;
-	file >> txt;
-	std::cout << txt << std::endl;
-	file.close();
+	if (ac != 4)
+	{
+		std::cerr << RED << "Invalid args!" << RESET << std::endl;
+		std::cerr << GREEN << "Valid Args are: ./sed  file_path  str_from  str_to" << RESET << std::endl;
+		return (1);
+	}
+	std::fstream	fileIn(av[1], std::ios::in);
+	if (!fileIn)
+	{
+		std::cerr << RED << "Something went wrong to open file: " << av[1] << std::endl;
+		return (1);
+	}
+	std::string		line;
+	std::string		replacedLine;
+	std::string		fileOutName = std::string(av[1]) + ".replace";
+	std::fstream	fileOut(fileOutName, std::ios::out | std::ios::trunc);
+	if (!fileOut)
+	{
+		std::cerr << RED << "Something went wrong to open file: " << fileOutName << std::endl;
+		fileIn.close();
+		return (1);
+	}
+	
+	while (std::getline(fileIn, line))
+	{
+		if (!fileIn.eof())
+			line += "\n";
+		replacedLine = sed(line, av[2], av[3]);
+		// std::cout << replacedLine << std::endl;
+		fileOut << replacedLine;
+	}
+	fileIn.close();
 	return (0);
 }
