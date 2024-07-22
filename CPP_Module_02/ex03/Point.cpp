@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:55:32 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/21 19:18:47 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/22 14:47:43 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,14 @@ Point::Point( const Fixed x, const Fixed y ): x(x), y(y)
 
 }
 
-Point::Point( const Point& origine )
+Point::Point( const Point& origine ): x(origine.x), y(origine.y)
 {
 	*this = origine;
 }
 
 Point&	Point::operator=( const Point& origine )
 {
-	if (this != &origine)
-	{
-		this->x = origine.x;
-		this->y = origine.y;
-	}
+	(void)origine;
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:49:34 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/21 19:12:50 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/22 14:16:54 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ class Point
 		float	gety() const;
 
 	private:
-		Fixed	x;
-		Fixed	y;
+		Fixed const	x;
+		Fixed const	y;
 };
 
 bool	bsp( Point const a, Point const b, Point const c, Point const point);
