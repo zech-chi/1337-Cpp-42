@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 12:44:19 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/21 16:50:22 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/22 12:17:21 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main( void ) {
 	Fixed a;
-	Fixed const b( 2147483647 );
+	Fixed const b( 2147483646 );
 	Fixed const c( 42.42f );
 	Fixed const d( b );
 

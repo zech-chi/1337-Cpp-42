@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 12:44:12 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/21 18:18:02 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/22 12:11:05 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Fixed::Fixed( const int d )
 Fixed::Fixed( const float f )
 {
 	// std::cout << "Float constructor called" << std::endl;
-	_val = roundf(f * 256);
+	_val = roundf(f * (1 << _bits));
 }
 
 Fixed::~Fixed()
@@ -49,7 +49,7 @@ void	Fixed::setRawBits( int const raw )
 
 float	Fixed::toFloat( void ) const
 {
-	return (((float)_val) / 256);
+	return (((float)_val) / (float)((1 << _bits)));
 }
 
 int		Fixed::toInt( void ) const

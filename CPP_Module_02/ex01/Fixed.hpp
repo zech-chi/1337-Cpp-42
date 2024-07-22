@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 12:44:16 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/21 16:35:03 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/22 11:45:30 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ class   Fixed {
 		void	setRawBits( int const raw );
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
-		// std::ostream& operator << (std::ostream& out, const Fixed& f);
 
 	private:
 		int					_val;
