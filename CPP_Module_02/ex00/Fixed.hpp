@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 12:44:16 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/20 16:51:53 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/22 11:13:55 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class   Fixed {
 	public:
 		Fixed();
 		Fixed( const Fixed& origine);
-		Fixed& operator = ( const Fixed& origine );
+		Fixed& operator=( const Fixed& origine );
 		~Fixed();
 
 		int		getRawBits( void ) const;
