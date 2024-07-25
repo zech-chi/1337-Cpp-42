@@ -14,8 +14,11 @@
 
 int main()
 {
-    DiamondTrap d("ultradiamond");
+    DiamondTrap d("zd");
+    DiamondTrap d2(d);
 
-    d.whoAmI();
+    d.display();
+    d2.display();
+
     return (0);
 }
