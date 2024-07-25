@@ -24,7 +24,7 @@ ClapTrap::ClapTrap()
 }
 
 /* Parameterized Constructor */
-ClapTrap::ClapTrap( const std::string name )
+ClapTrap::ClapTrap( const std::string& name )
 {
 	_name = name;
 	_hitPoints = 10;

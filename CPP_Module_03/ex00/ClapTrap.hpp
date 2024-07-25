@@ -29,7 +29,7 @@ class	ClapTrap
 
 	public:
 		ClapTrap();
-		ClapTrap( const std::string name );
+		ClapTrap( const std::string& name );
 		ClapTrap( const ClapTrap& origine);
 		ClapTrap& operator=( const ClapTrap& origine );
 		~ClapTrap();

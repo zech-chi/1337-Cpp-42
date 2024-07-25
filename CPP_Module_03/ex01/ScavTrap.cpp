@@ -12,7 +12,7 @@ ScavTrap::ScavTrap()
 }
 
 /* Parameterized Constructor */
-ScavTrap::ScavTrap( const std::string name ) : ClapTrap(name)
+ScavTrap::ScavTrap( const std::string& name ) : ClapTrap(name)
 {
     _hitPoints = 100;
     _energyPoints = 50;
