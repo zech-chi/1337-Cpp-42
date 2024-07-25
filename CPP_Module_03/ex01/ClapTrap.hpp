@@ -21,7 +21,7 @@ typedef unsigned int uint;
 class	ClapTrap
 {
 
-	private:
+	protected:
 		std::string	_name;
 		uint		_hitPoints;
 		uint		_energyPoints;
@@ -39,6 +39,7 @@ class	ClapTrap
 		void	beRepaired( uint amount );
 
 		uint		getAttackDamage() const;
+
 
 		void	display();
 };

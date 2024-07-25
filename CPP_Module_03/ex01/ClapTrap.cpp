@@ -67,9 +67,9 @@ ClapTrap::~ClapTrap()
 void	ClapTrap::attack( const std::string& target )
 {
 	if (!_hitPoints) {
-		std::cout << _name << " can't attack, no hitPoints left!" << std::endl;
+		std::cout << "ClapTrap " << _name << " can't attack, no hitPoints left!" << std::endl;
 	} else if (!_energyPoints) {
-		std::cout << _name << " can't attack, no energyPoints left!" << std::endl;
+		std::cout << "ClapTrap " << _name << " can't attack, no energyPoints left!" << std::endl;
 	} else {
 		std::cout << "ClapTrap " << _name << " attacks " << target
 				  << " causing " << _attackDamage << " points of damage!"
