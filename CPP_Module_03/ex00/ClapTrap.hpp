@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 21:49:33 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/24 11:30:41 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/26 13:18:31 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class	ClapTrap
 	public:
 		ClapTrap();
 		ClapTrap( const std::string& name );
-		ClapTrap( const ClapTrap& origine);
+		ClapTrap( const ClapTrap& origine );
 		ClapTrap& operator=( const ClapTrap& origine );
 		~ClapTrap();
 		
@@ -40,7 +40,7 @@ class	ClapTrap
 
 		uint		getAttackDamage() const;
 
-		void	display();
+		// void	display();
 };
 
 #endif

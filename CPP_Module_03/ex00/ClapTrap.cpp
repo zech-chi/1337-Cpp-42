@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 21:49:31 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/24 11:40:26 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/07/26 13:36:31 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ ClapTrap::ClapTrap( const std::string& name )
 }
 
 /* The copy constructor initializes a new object using an existing object. */
-ClapTrap::ClapTrap( const ClapTrap& origine)
+ClapTrap::ClapTrap( const ClapTrap& origine )
 {
 	std::cout << "Base class ClapTrap Copy constructor called" << std::endl;
 	*this = origine;
@@ -45,7 +45,7 @@ ClapTrap::ClapTrap( const ClapTrap& origine)
 	existing object to another existing object, 
 	checking for self-assignment to avoid unnecessary work.
 */
-ClapTrap& ClapTrap::operator=( const ClapTrap& origine)
+ClapTrap& ClapTrap::operator=( const ClapTrap& origine )
 {
 	std::cout << "Base class ClapTrap Copy assignment operator called" << std::endl;
 	if (this != &origine)
@@ -94,20 +94,20 @@ void	ClapTrap::beRepaired( uint amount )
 		std::cout << _name << " can't repair, no energyPoints left!" << std::endl;
 	} else {
 		_hitPoints += amount;
-		_energyPoints -= 1;
+		_energyPoints--;
 		std::cout << _name << " repaired!" << std::endl;
 	}
 }
 
-void	ClapTrap::display()
-{
-	std::cout << "---------------------------------------" << std::endl;
-	std::cout << "name : " << _name << std::endl;
-	std::cout << "hitPoints : " << _hitPoints << std::endl;
-	std::cout << "energyPoints : " << _energyPoints << std::endl;
-	std::cout << "attackDamage : " << _attackDamage << std::endl;
-	std::cout << "---------------------------------------" << std::endl;
-}
+// void	ClapTrap::display()
+// {
+// 	std::cout << "---------------------------------------" << std::endl;
+// 	std::cout << "name : " << _name << std::endl;
+// 	std::cout << "hitPoints : " << _hitPoints << std::endl;
+// 	std::cout << "energyPoints : " << _energyPoints << std::endl;
+// 	std::cout << "attackDamage : " << _attackDamage << std::endl;
+// 	std::cout << "---------------------------------------" << std::endl;
+// }
 
 uint	ClapTrap::getAttackDamage() const
 {
