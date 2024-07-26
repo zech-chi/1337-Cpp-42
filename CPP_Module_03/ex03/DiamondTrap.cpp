@@ -7,9 +7,9 @@ DiamondTrap::DiamondTrap()
 {
     _name = "diamondtrap0";
 	ClapTrap::_name = _name + "_clap_name";
-    _hitPoints = FragTrap::_hitPoints;
-    _energyPoints = ScavTrap::_energyPoints;
-    _attackDamage = FragTrap::_attackDamage;
+    _hitPoints = 100;
+    _energyPoints = 50;
+    _attackDamage = 30;
     std::cout << "Derived class DiamondTrap {diamondtrap0} default constuctor called" << std::endl;
 }
 
@@ -17,9 +17,9 @@ DiamondTrap::DiamondTrap( const std::string& name )
 {
 	_name = name;
 	ClapTrap::_name = _name + "_clap_name";
-    _hitPoints = FragTrap::_hitPoints;
-    _energyPoints = ScavTrap::_energyPoints;
-    _attackDamage = FragTrap::_attackDamage;	
+    _hitPoints = 100;
+    _energyPoints = 50;
+    _attackDamage = 30;
 	std::cout << "Derived class DiamondTrap {"<< _name << "} parameterized constuctor called" << std::endl;
 }
 
@@ -59,7 +59,6 @@ void    DiamondTrap::display()
 {
 	std::cout << "---------------------------------------" << std::endl;
     whoAmI();
-	std::cout << "name : " << _name << std::endl;
 	std::cout << "hitPoints : " << _hitPoints << std::endl;
 	std::cout << "energyPoints : " << _energyPoints << std::endl;
 	std::cout << "attackDamage : " << _attackDamage << std::endl;
