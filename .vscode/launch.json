@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/zech-chi/Desktop/1337-Cpp-42/CPP_Module_03/ex03",
-      "program": "/Users/zech-chi/Desktop/1337-Cpp-42/CPP_Module_03/ex03/build/Debug/outDebug"
+      "cwd": "/Users/zech-chi/Desktop/1337-Cpp-42/learn/Inheritance",
+      "program": "/Users/zech-chi/Desktop/1337-Cpp-42/learn/Inheritance/build/Debug/outDebug"
     }
   ]
 }

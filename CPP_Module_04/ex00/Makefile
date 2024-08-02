@@ -6,7 +6,7 @@
 #    By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/30 16:34:39 by zech-chi          #+#    #+#              #
-#    Updated: 2024/07/30 16:43:22 by zech-chi         ###   ########.fr        #
+#    Updated: 2024/08/02 18:02:40 by zech-chi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,9 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -f
 
-SRCS = Animal.cpp Cat.cpp Dog.cpp main.cpp
+SRCS = Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
 
-HEADERS = Animal.hpp Cat.hpp Dog.hpp
+HEADERS = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 

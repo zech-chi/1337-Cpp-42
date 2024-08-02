@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 16:34:27 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/30 17:17:51 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/08/02 18:43:40 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@
 Cat::Cat() : Animal("Cat")
 {
 	std::cout << "Default Cat (Derived class) constructor called" << std::endl;
+}
+
+Cat::Cat( const Cat& origine ) : Animal(origine)
+{
+	
+}
+
+Cat&	Cat::operator=( const Cat& origine )
+{
+	if (this != &origine)
+		Animal::operator=(origine);
+	return (*this);
 }
 
 Cat::~Cat()

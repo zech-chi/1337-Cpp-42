@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 16:34:24 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/07/30 17:14:06 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/08/02 18:34:08 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,19 @@ Animal::Animal()
 
 Animal::Animal( const std::string& type ) : type(type)
 {
-	
+	std::cout << "Parameterized Animal (Base class) constructor called" << std::endl;
+}
+
+Animal::Animal( const Animal& origine )
+{
+	*this = origine;
+}
+
+Animal&	Animal::operator=( const Animal& origine )
+{
+	if (this != &origine)
+		type = origine.type;
+	return (*this);
 }
 
 Animal::~Animal()
@@ -36,4 +48,3 @@ void	Animal::makeSound() const
 {
 	std::cout << "animal can't make sound" << std::endl;
 }
-
