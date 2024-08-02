@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 17:56:29 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/08/02 18:38:45 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/08/02 19:09:52 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 WrongAnimal::WrongAnimal()
 {
     std::cout << "Default WrongAnimal (Base class) constructor called" << std::endl;
-}
-
-WrongAnimal::WrongAnimal( const std::string& type ) : type(type)
-{
-	std::cout << "Parameterized WrongAnimal (Base class) constructor called" << std::endl;
 }
 
 WrongAnimal::WrongAnimal( const WrongAnimal& origine )

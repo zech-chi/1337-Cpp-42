@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 16:34:24 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/08/02 18:34:08 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/08/02 19:09:19 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 Animal::Animal()
 {
 	std::cout << "Default Animal (Base class) constructor called" << std::endl;
-}
-
-Animal::Animal( const std::string& type ) : type(type)
-{
-	std::cout << "Parameterized Animal (Base class) constructor called" << std::endl;
 }
 
 Animal::Animal( const Animal& origine )

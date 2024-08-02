@@ -6,15 +6,16 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 18:06:07 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/08/02 18:51:53 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/08/02 19:10:12 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 #include "WrongAnimal.hpp"
 
-WrongCat::WrongCat() : WrongAnimal("WrongCat")
+WrongCat::WrongCat()
 {
+	type = "WrongCat";
 	std::cout << "Default WrongCat (Derived class) constructor called" << std::endl;
 }
 

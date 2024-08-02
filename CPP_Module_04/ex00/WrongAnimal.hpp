@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 17:56:27 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/08/02 18:36:15 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/08/02 19:09:47 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class   WrongAnimal
     
     public:
         WrongAnimal();
-        WrongAnimal( const std::string& type );
         WrongAnimal( const WrongAnimal& origine );
         WrongAnimal& operator=( const WrongAnimal& origine );
         ~WrongAnimal();

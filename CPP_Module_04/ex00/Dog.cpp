@@ -6,15 +6,16 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 16:34:31 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/08/02 18:49:31 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/08/02 19:08:37 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Animal.hpp"
 
-Dog::Dog() : Animal("Dog")
+Dog::Dog()
 {
+	type = "Dog";
 	std::cout << "Default Dog (Derived class) constructor called" << std::endl;
 }
 
