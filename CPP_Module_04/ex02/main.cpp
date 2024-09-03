@@ -6,10 +6,12 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 16:34:37 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/09/03 15:13:43 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:24:42 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Brain.hpp"
+#include <string>
 #include <iostream>
 #include "Animal.hpp"
 #include "Cat.hpp"
@@ -17,7 +19,7 @@
 
 int main()
 {
-    const   int size = 10;
+    const   int size = 4;
     Animal* animals[size];
 
     //create
@@ -42,8 +44,9 @@ int main()
     //delete
     for (int i = 0; i < size; i++)
     {
-        // std::cout << i << std::endl;
+        std::cout << i << std::endl;
         delete animals[i];
     }
+
     return (0);
 }

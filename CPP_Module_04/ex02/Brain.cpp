@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 10:06:03 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/08/03 10:55:25 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:22:21 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,32 +42,32 @@ Brain&	Brain::operator=( const Brain& origine )
 	return (*this);
 }
 
-void	Brain::setIdea( std::string idea, int index )
-{
-	if (index < 0 || index >= 100)
-	{
-		std::cerr << "Error: invalid index" << std::endl;
-		return;
-	}
-	ideas[index] = idea;
-}
+// void	Brain::setIdea( std::string idea, int index )
+// {
+// 	if (index < 0 || index >= 100)
+// 	{
+// 		std::cerr << "Error: invalid index" << std::endl;
+// 		return;
+// 	}
+// 	ideas[index] = idea;
+// }
 
-std::string	Brain::getIdea( int index ) const
-{
-	if (index < 0 || index >= 100)
-	{
-		std::cerr << "Error: invalid index" << std::endl;
-		return ("");
-	}
-	return (ideas[index]);
-}
+// std::string	Brain::getIdea( int index ) const
+// {
+// 	if (index < 0 || index >= 100)
+// 	{
+// 		std::cerr << "Error: invalid index" << std::endl;
+// 		return ("");
+// 	}
+// 	return (ideas[index]);
+// }
 
-void	Brain::printIdeas() const
-{
-	std::cout << "----------ideas----------" << std::endl;
-	for (int i = 0; i < 100; i++)
-	{
-		std::cout << "idea " << i << " ---> ";
-		std::cout << ideas[i] << std::endl;
-	}
-}
+// void	Brain::printIdeas() const
+// {
+// 	std::cout << "----------ideas----------" << std::endl;
+// 	for (int i = 0; i < 100; i++)
+// 	{
+// 		std::cout << "idea " << i << " ---> ";
+// 		std::cout << ideas[i] << std::endl;
+// 	}
+// }
