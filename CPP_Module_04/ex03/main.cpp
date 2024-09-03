@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:50:03 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/09/02 21:20:53 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:30:00 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 #include "Cure.hpp"
 #include "Character.hpp"
 
+
 int main()
 {
     IMateriaSource* src = new MateriaSource();
-    src->print();
     src->learnMateria(new Ice());
-    src->print();
     src->learnMateria(new Cure());
-    src->print();
 
 
     ICharacter* me = new Character("me");

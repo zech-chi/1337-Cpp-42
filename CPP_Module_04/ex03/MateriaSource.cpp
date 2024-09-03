@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:39:03 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/09/02 21:14:14 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:29:12 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,16 @@ AMateria *MateriaSource::createMateria(std::string const &type)
     return (0);
 }
 
-void    MateriaSource::print()
-{
-    std::cout << "---------->store of Materia Source<---------\n";  
-    for (int i = 0; i < 4; i++) {
-        std::cout << i << ": ";
-        if (store[i])
-            std::cout << store[i]->getType();
-        else
-            std::cout << "NaN";
-        std::cout << std::endl;
-    }
-     std::cout << "-------------------------------------------\n";
-}
+// void    MateriaSource::print()
+// {
+//     std::cout << "---------->store of Materia Source<---------\n";  
+//     for (int i = 0; i < 4; i++) {
+//         std::cout << i << ": ";
+//         if (store[i])
+//             std::cout << store[i]->getType();
+//         else
+//             std::cout << "NaN";
+//         std::cout << std::endl;
+//     }
+//      std::cout << "-------------------------------------------\n";
+// }
