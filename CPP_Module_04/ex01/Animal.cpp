@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 16:34:24 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/08/02 19:09:19 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:53:42 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ Animal::Animal()
 Animal::Animal( const Animal& origine )
 {
 	*this = origine;
+	std::cout << "Animal copy constructor called!" << std::endl;
 }
 
 Animal&	Animal::operator=( const Animal& origine )
 {
 	if (this != &origine)
 		type = origine.type;
+	std::cout << "Animal copy assignment operator called!" << std::endl;
 	return (*this);
 }
 

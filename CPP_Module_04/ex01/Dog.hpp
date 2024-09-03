@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 16:34:34 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/08/03 11:39:37 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:09:57 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 class   Dog : public Animal
 {
 	private:
+		Brain* _brain;
 
 	public:
-		Brain* _brain;
 		Dog();
 		Dog( const Dog& origine );
 		Dog& operator=( const Dog& origine );

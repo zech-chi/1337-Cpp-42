@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 16:34:37 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/08/03 12:54:53 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:17:38 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int main()
 {
-    const   int size = 10;
+    const   int size = 4;
     Animal* animals[size];
 
     //create

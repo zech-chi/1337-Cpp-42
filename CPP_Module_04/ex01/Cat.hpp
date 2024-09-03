@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 16:34:29 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/08/03 11:39:33 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:55:53 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 class   Cat : public Animal
 {
     private:
+        Brain* _brain;
 
     public:
-        Brain* _brain;
         Cat();
         Cat( const Cat& origine );
         Cat& operator=( const Cat& origine );
