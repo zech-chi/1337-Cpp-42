@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 16:34:37 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/08/02 19:00:06 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:47:06 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,4 @@ int main()
 //     delete meta;
 //     delete i;
 //     return 0;
-// }
-
-// int main()
-// {
-//     WrongCat  c1 = WrongCat();
-//     WrongCat  c2 = c1;
-//     WrongCat c3;
-
-//     c3 = c1;
-//     std::cout << c1.getType() << std::endl;
-//     std::cout << c2.getType() << std::endl;
-//     std::cout << c3.getType() << std::endl;
 // }

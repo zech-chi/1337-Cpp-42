@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 17:56:29 by zech-chi          #+#    #+#             */
-/*   Updated: 2024/08/02 19:09:52 by zech-chi         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:37:28 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ WrongAnimal::WrongAnimal()
 WrongAnimal::WrongAnimal( const WrongAnimal& origine )
 {
 	*this = origine;
+	std::cout << "WrongAnimal copy constructor called!" << std::endl;
 }
 
 WrongAnimal&	WrongAnimal::operator=( const WrongAnimal& origine )
 {
 	if (this != &origine)
 		type = origine.type;
+	std::cout << "WrongAnimal copy assignment operator called!" << std::endl;
 	return (*this);
 }
 

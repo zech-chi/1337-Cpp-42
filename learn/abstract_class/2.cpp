@@ -4,16 +4,16 @@
 class   Base
 {
     public:
-        virtual void    sayhello();
+        virtual void    sayhello() = 0;
 
 };
+
+void Base::sayhello() {
+    
+}
 
 
 int main()
 {
-    int a, b,c;
-    a = 12; b = 19 ; c = 90;
-    (a = b) = c;
-    a = b = c;
-    std::cout << a << std::endl;
+    Base    a;
 }

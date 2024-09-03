@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/30 16:34:39 by zech-chi          #+#    #+#              #
-#    Updated: 2024/09/03 14:48:37 by zech-chi         ###   ########.fr        #
+#    Created: 2024/08/16 15:15:57 by zech-chi          #+#    #+#              #
+#    Updated: 2024/09/02 20:52:25 by zech-chi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,9 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -f
 
-SRCS = Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
+SRCS = AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp
 
-HEADERS = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
+HEADERS = AMateria.hpp Character.hpp Cure.hpp ICharacter.hpp IMateriaSource.hpp Ice.hpp MateriaSource.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -30,7 +30,7 @@ all: $(NAME)
 	$(CPP) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CPP) $(FLAGS) $^ -o $@
+	@$(CPP) $(FLAGS) $^ -o $@
 
 clean:
 	$(RM) $(OBJS)
