@@ -3,6 +3,7 @@
 
 #include "iostream"
 #include "string"
+#include "exception"
 
 #define HIGHEST_GRADE 1
 #define LOWEST_GRADE 150
@@ -10,11 +11,11 @@
 class Bureaucrat
 {
     private:
-        std::string _name;
-        int         _grade;
+        const std::string _name;
+        int               _grade;
 
     public:
-        Bureaucrat(std::string name, int grade);
+        Bureaucrat(const std::string& name, int grade);
         Bureaucrat(const Bureaucrat& other);
         Bureaucrat& operator = (const Bureaucrat& other);
         ~Bureaucrat();
@@ -24,6 +25,14 @@ class Bureaucrat
 
         const std::string &getName() const;
         int getGrade() const;
+
+        class GradeTooHighException : public std::exception {
+            public: virtual const char* what() const _NOEXCEPT;
+        };
+
+        class GradeTooLowException : public std::exception {
+            public: virtual const char* what() const _NOEXCEPT;
+        };
 };
 
 std::ostream&  operator << (std::ostream& out, const Bureaucrat& bureaucrat);

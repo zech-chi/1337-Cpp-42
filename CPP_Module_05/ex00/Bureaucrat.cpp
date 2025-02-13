@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade(grade)
 {
     // I must check if grade between 1 and 150
     // std::cout << "Bureaucrat constructor;\n";
@@ -20,7 +20,7 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat &Bureaucrat::operator = (const Bureaucrat& other) {
     std::cout << "Bureaucrat copy assignment operator;\n";
     if (this != &other) {
-        this->_name = other.getName();
+        // this->_name = other.getName(); ???
         this->_grade = other.getGrade();
     }
     return (*this);
@@ -32,10 +32,14 @@ std::ostream&  operator << (std::ostream& out, const Bureaucrat& bureaucrat) {
 }
 
 void    Bureaucrat::incrementGrade() {
+    if (_grade == HIGHEST_GRADE)
+        throw GradeTooHighException();
     _grade--;
 }
 
 void    Bureaucrat::decrementGrade() {
+    if (_grade == LOWEST_GRADE)
+        throw GradeTooLowException();
     _grade++;
 }
 
@@ -45,4 +49,12 @@ const std::string &Bureaucrat::getName() const {
 
 int Bureaucrat::getGrade() const {
     return (_grade);
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const _NOEXCEPT {
+    return ("Grade Too Hight!");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const _NOEXCEPT {
+    return ("Grade Too Low!");
 }
