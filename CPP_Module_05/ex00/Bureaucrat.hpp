@@ -27,11 +27,11 @@ class Bureaucrat
         int getGrade() const;
 
         class GradeTooHighException : public std::exception {
-            public: virtual const char* what() const _NOEXCEPT;
+            public: virtual const char* what() const throw();
         };
 
         class GradeTooLowException : public std::exception {
-            public: virtual const char* what() const _NOEXCEPT;
+            public: virtual const char* what() const throw();
         };
 };
 

@@ -46,18 +46,23 @@
 
 
 int main() {
-    Bureaucrat b1("b1", 5);
+    std::string name = "b1";
+    int         grade = 5;
+    int         N = 10;
+
+    Bureaucrat b1(name, grade);
     std::cout << b1;
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < N; i++) {
         try {
             b1.incrementGrade();
         }
         catch (std::exception &e) {
-            std::cout << "exception catched: " << e.what() << "\n";
+            std::cout << "exception: " << e.what() << "\n";
         }
         std::cout << b1;
     }
-    std::cout << "done!";
+    std::cout << "done!\n";
     return (0);
 }
+
