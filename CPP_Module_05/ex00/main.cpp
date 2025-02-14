@@ -1,68 +1,59 @@
 #include "Bureaucrat.hpp"
 
-// int main() {
-//     Bureaucrat b1("zech-chi", 7);
-//     std::cout << "b1: " << b1;
-//     Bureaucrat b2("xorman", 13);
-//     std::cout << "b2: " << b2;
-//     b2 = b1;
-//     std::cout << "decrement the grade for b1 ...\n";
-//     b1.decrementGrade();
-//     std::cout << "b1: " << b1;
-//     std::cout << "increment the grade for b2 ...\n";
-//     b2.incrementGrade();
-//     std::cout << "b2: " << b2;
-// }
-
-// int main() {
-//     Bureaucrat b1("b1", 111);
-//     std::cout << b1;
-
-//     for (int i = 0; i < 500; i++) {
-//         try {
-//             b1.incrementGrade();
-//         }
-//         catch (char const *s) {
-//             std::cout << s;
-//         }
-//         std::cout << b1;
-//     }
-// }
-
-// int main() {
-//     Bureaucrat b1("b1", 111);
-//     std::cout << b1;
-
-//     for (int i = 0; i < 500; i++) {
-//         try {
-//             b1.decrementGrade();
-//         }
-//         catch (char const *s) {
-//             std::cout << s;
-//         }
-//         std::cout << b1;
-//     }
-// }
-
-
 int main() {
-    std::string name = "b1";
-    int         grade = 5;
-    int         N = 10;
 
-    Bureaucrat b1(name, grade);
-    std::cout << b1;
-
-    for (int i = 0; i < N; i++) {
-        try {
-            b1.incrementGrade();
-        }
-        catch (std::exception &e) {
-            std::cout << "exception: " << e.what() << "\n";
-        }
+    // first Bureaucrat
+    try {
+        Bureaucrat b1("b1", 5);
+        std::cout << "first Bureaucrat: ";
         std::cout << b1;
+
+        for (int i = 0; i < 10; i++) {
+            try {
+                b1.incrementGrade();
+            }
+            catch (std::exception &e) {
+                std::cerr << BOLD_RED << "Exception: " << e.what() << RESET << "\n";
+            }
+            std::cout << b1;
+        }
     }
+    catch (std::exception &e) {
+        std::cerr << BOLD_RED << "Exception: " << e.what() << RESET << "\n";
+    }
+
+    // second Bureaucrat
+    try {
+        Bureaucrat b2("b2", 145);
+        std::cout << "second Bureaucrat: ";
+        std::cout << b2;
+
+        for (int i = 0; i < 10; i++) {
+            try {
+                b2.decrementGrade();
+            }
+            catch (std::exception &e) {
+                std::cerr << BOLD_RED << "Exception: " << e.what() << RESET << "\n";
+            }
+            std::cout << b2;
+        }
+    }
+    catch (std::exception &e) {
+        std::cerr << BOLD_RED << "Exception: " << e.what() << RESET << "\n";
+    }
+
+    // third Bureaucrat
+    try {
+        Bureaucrat b3("b3", 154);
+        std::cout << "third Bureaucrat: ";
+        std::cout << b3;
+
+    } 
+    catch (std::exception &e) {
+        std::cerr << BOLD_RED << "Exception: " << e.what() << RESET << "\n";
+    }
+
+
     std::cout << "done!\n";
     return (0);
 }
-
