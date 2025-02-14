@@ -53,7 +53,28 @@ int main() {
         std::cerr << BOLD_RED << "Exception: " << e.what() << RESET << "\n";
     }
 
+    // default Bureaucrat
+    Bureaucrat b4;
+    std::cout << "default Bureaucrat: ";
+    for (int i = 0; i < 10; i++) {
+        try {
+            b4.incrementGrade();
+        }
+        catch (std::exception &e) {
+            std::cerr << BOLD_RED << "Exception: " << e.what() << RESET << "\n";
+        }
+        std::cout << b4;
+    }
+    for (int i = 0; i < 15; i++) {
+        try {
+            b4.decrementGrade();
+        }
+        catch (std::exception &e) {
+            std::cerr << BOLD_RED << "Exception: " << e.what() << RESET << "\n";
+        }
+        std::cout << b4;
+    }
 
-    std::cout << "done!\n";
+    std::cout << BOLD_GREEN << "done!\n" << RESET;
     return (0);
 }

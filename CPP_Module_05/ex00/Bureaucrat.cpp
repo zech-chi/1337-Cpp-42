@@ -1,5 +1,11 @@
 #include "Bureaucrat.hpp"
 
+Bureaucrat::Bureaucrat() : _name("zcrat"), _grade(LOWEST_GRADE) {
+    std::cout << BOLD_YELLOW;
+    std::cout << "Bureaucrat default constructor\n";
+    std::cout << RESET;
+}
+
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade(grade)
 {
     // I must check if grade between 1 and 150
