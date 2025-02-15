@@ -79,6 +79,10 @@ std::ostream& operator << (std::ostream& out, const Form& form) {
 }
 
 
+void Form::beSigned(const Bureaucrat& bureaucrat) {
+    if (bureaucrat.getGrade() )
+}
+
 const char* Form::GradeTooHighException::what() const throw() {
     return ("Grade Too High!");
 }
