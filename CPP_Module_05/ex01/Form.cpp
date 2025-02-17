@@ -42,7 +42,7 @@ Form& Form::operator = (const Form& other) {
 
 Form::~Form() {
     std::cout << BOLD_YELLOW;
-    std::cout << "Form desstructor\n";
+    std::cout << "Form destructor\n";
     std::cout << RESET;
 }
 
@@ -80,7 +80,9 @@ std::ostream& operator << (std::ostream& out, const Form& form) {
 
 
 void Form::beSigned(const Bureaucrat& bureaucrat) {
-    if (bureaucrat.getGrade() )
+    if (bureaucrat.getGrade() > _gradeToSign)
+        throw GradeTooLowException();
+    _isSigned = true;
 }
 
 const char* Form::GradeTooHighException::what() const throw() {

@@ -21,6 +21,8 @@
 // Reset Color
 #define RESET "\033[0m"
 
+class Form;
+
 class Bureaucrat
 {
     private:
@@ -39,6 +41,8 @@ class Bureaucrat
 
         const std::string &getName() const;
         int getGrade() const;
+
+        void signForm(Form& form);
 
         class GradeTooHighException : public std::exception {
             public: virtual const char* what() const throw();
