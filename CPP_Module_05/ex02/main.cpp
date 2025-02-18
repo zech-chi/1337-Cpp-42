@@ -3,26 +3,6 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-// int main() {
-//     ShrubberyCreationForm scf1;
-//     std::cout << scf1;
-//     ShrubberyCreationForm scf2("scf");
-//     std::cout << scf2;
-
-//     RobotomyRequestForm rrf1;
-//     std::cout << rrf1;
-//     RobotomyRequestForm rrf2("rrf");
-//     std::cout << rrf2;
-
-//     PresidentialPardonForm ppf1;
-//     std::cout << ppf1;
-//     PresidentialPardonForm ppf2("ppf");
-//     std::cout << ppf2;
-
-//     std::cout << BOLD_GREEN << "done!\n" << RESET;
-//     return (0);
-// }
-
 /*
     testing ShrubberyCreationForm
 */
