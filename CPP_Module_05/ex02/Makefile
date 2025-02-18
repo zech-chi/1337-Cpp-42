@@ -1,10 +1,16 @@
-NAME = form
+NAME = execute
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = Bureaucrat.cpp Form.cpp main.cpp 
+SRCS = Bureaucrat.cpp AForm.cpp main.cpp \
+	   ShrubberyCreationForm.cpp \
+	   RobotomyRequestForm.cpp \
+	   PresidentialPardonForm.cpp
 
-HEADERS = Bureaucrat.hpp Form.hpp
+HEADERS = Bureaucrat.hpp AForm.hpp \
+		  ShrubberyCreationForm.hpp \
+		  RobotomyRequestForm.hpp \
+		  PresidentialPardonForm.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 

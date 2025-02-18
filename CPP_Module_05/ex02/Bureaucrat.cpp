@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() : _name("zcrat"), _grade(LOWEST_GRADE) {
     std::cout << BOLD_YELLOW;
@@ -70,13 +70,24 @@ int Bureaucrat::getGrade() const {
     return (_grade);
 }
 
-void Bureaucrat::signForm(Form& form) {
+void Bureaucrat::signForm(AForm& form) {
     try {
         form.beSigned(*this);
         std::cout << *this << BOLD_GREEN << "signed " << form;
     }
     catch (std::exception &e) {
         std::cerr << *this << BOLD_RED << "couldn't sign " << form;
+        std::cerr << BOLD_RED << "because " << e.what() << ".\n" << RESET;
+    }
+}
+
+void Bureaucrat::executeForm(AForm const & form) {
+    try {
+        form.execute(*this);
+        std::cout << *this << BOLD_GREEN << "executed " << form;
+    }
+    catch (std::exception &e) {
+        std::cerr << *this << BOLD_RED << "couldn't execute " << form;
         std::cerr << BOLD_RED << "because " << e.what() << ".\n" << RESET;
     }
 }
