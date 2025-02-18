@@ -1,4 +1,6 @@
 #include "RobotomyRequestForm.hpp"
+#include <cstdlib>
+#include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("Robotomy", 72, 45), _target("default_Robotomy_target") {
     std::cout << BOLD_YELLOW;
@@ -37,5 +39,13 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
-    (void)executor;
+    if (!getIsSigned())
+        throw NotSignedException();
+    if (executor.getGrade() > getGradeToExecute())
+        throw GradeTooLowException();
+    std::srand(std::time(0));
+    if (std::rand() % 2)
+        std::cout << BOLD_GREEN << _target << " has been robotomized successfully!\n" << RESET;
+    else
+        std::cout << BOLD_RED << "Robotomy failed.\n" << RESET;
 }
