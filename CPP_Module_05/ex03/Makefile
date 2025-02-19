@@ -1,4 +1,4 @@
-NAME = execute
+NAME = intern
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
