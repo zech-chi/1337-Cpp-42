@@ -64,7 +64,7 @@ int Form::getGradeToExecute() const {
 
 std::ostream& operator << (std::ostream& out, const Form& form) {
     out << BOLD_WHITE;
-    out << "Form info {\n";
+    out << "Form {\n";
     out << "\tname = " << form.getName();
     out << "\n\tisSigned = ";
     if (form.getIsSigned())
