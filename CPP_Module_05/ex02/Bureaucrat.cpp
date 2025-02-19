@@ -5,18 +5,22 @@ Bureaucrat::Bureaucrat() : _name("zcrat"), _grade(LOWEST_GRADE) {
     std::cout << BOLD_YELLOW;
     std::cout << "Bureaucrat default constructor\n";
     std::cout << RESET;
-}
-
-Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade(grade)
-{
-    // I must check if grade between 1 and 150
-    std::cout << BOLD_YELLOW;
-    std::cout << "Bureaucrat constructor; name{" << _name << "} and grade{" << _grade << "}\n";
-    std::cout << RESET;
     if (_grade < HIGHEST_GRADE)
         throw GradeTooHighException();
     if (_grade > LOWEST_GRADE)
         throw GradeTooLowException();
+}
+
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name)
+{
+    std::cout << BOLD_YELLOW;
+    std::cout << "Bureaucrat constructor; name{" << _name << "} and grade{" << _grade << "}\n";
+    std::cout << RESET;
+    if (grade < HIGHEST_GRADE)
+        throw GradeTooHighException();
+    if (grade > LOWEST_GRADE)
+        throw GradeTooLowException();
+    _grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade) {
