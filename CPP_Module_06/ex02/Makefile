@@ -2,7 +2,7 @@ NAME = identify
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = identify.cpp main.cpp
+SRCS = identify.cpp Base.cpp main.cpp
 
 HEADERS = identify.hpp
 
