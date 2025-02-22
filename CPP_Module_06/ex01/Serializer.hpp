@@ -2,6 +2,7 @@
 #define SERIALIZER_HPP
 
 #include<iostream>
+#include <stdint.h>
 
 // Bold Text Color
 #define BOLD_BLACK "\033[1;30m"

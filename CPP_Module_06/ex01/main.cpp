@@ -19,6 +19,10 @@ int main() {
 
     std::cout << BOLD_BLUE << "serialize ...\n" << RESET;
     uintptr_t   raw = Serializer::serialize(&movie);
+
+    std::cout << "\n" << "raw = " << raw << "\n\n";
+    // raw++;
+
     std::cout << BOLD_BLUE << "deserialize ...\n" << RESET;
     Data*       parasite = Serializer::deserialize(raw);
 
