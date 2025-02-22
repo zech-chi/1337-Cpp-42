@@ -11,9 +11,7 @@ int main(int ac, char **av) {
         std::cerr << BOLD_RED << "literal is empty!\n" << RESET;
     }
 
-    ScalarConverter converter;
-
-    converter.convert(s);
+    ScalarConverter::convert(s);
 
     std::cout << BOLD_MAGENTA;
     std::cout << "long max = " << LONG_MAX << "\n";

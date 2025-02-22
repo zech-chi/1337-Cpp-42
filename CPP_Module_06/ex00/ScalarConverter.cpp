@@ -67,11 +67,11 @@ bool handleChar(const std::string &s) {
 bool handleFloat(const std::string &s) {
     data    _data;
     char    *end;
-    float   num = std::strtof(s.c_str(), &end);
+    double   num = std::strtod(s.c_str(), &end);
 
     if (*end == 'f' && *(end + 1) == '\0' && INT_MIN <= num && num <= INT_MAX) {
-        _data._float = num;
-        _data._double = static_cast<double>(num);
+        _data._double = num;
+        _data._float = static_cast<float>(num);
         _data._int = static_cast<int>(num);
         display(_data);
         return (true);
@@ -111,16 +111,11 @@ bool handleInt(const std::string &s) {
 
 
 void  ScalarConverter::convert(const std::string& s) {
-    if (handlePseudoLiterals(s))
-        return;
-    if (handleChar(s))
-        return;
-    if (handleFloat(s))
-        return;
-    if (handleDouble(s))
-        return;
-    if (handleInt(s))
-        return;
+    if (handlePseudoLiterals(s)) return;
+    if (handleChar(s)) return;
+    if (handleInt(s)) return;
+    if (handleFloat(s)) return;
+    if (handleDouble(s)) return;
     std::cout << "char: impossible\n"; 
     std::cout << "int: impossible\n"; 
     std::cout << "float: impossible\n"; 
