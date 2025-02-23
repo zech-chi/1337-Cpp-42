@@ -39,19 +39,25 @@ bool  handlePseudoLiterals(const std::string& s) {
 }
 
 void display(data& _data) {
-    if (32 <= _data._int && _data._int <= 126) {
-        _data._char = static_cast<char>(_data._int);
-        std::cout << "char: " << _data._char << "\n";
+    if (_data.overflow) {
+        std::cout << "char: impossible\n"; 
+        std::cout << "int: impossible\n"; 
+    } else {
+        if (32 <= _data._int && _data._int <= 126) {
+            _data._char = static_cast<char>(_data._int);
+            std::cout << "char: " << _data._char << "\n";
+        }
+        else
+            std::cout << "char: Non displayable\n";
+        std::cout << "int: " << _data._int << "\n";
     }
-    else
-        std::cout << "char: Non displayable\n";
-    std::cout << "int: " << _data._int << "\n";
     std::cout << "float: " << std::fixed << std::setprecision(1) << _data._float << "f\n";
     std::cout << "double: " << std::fixed << std::setprecision(1) << _data._double << "\n";
 }
 
 bool handleChar(const std::string &s) {
     data    _data;
+    _data.overflow = false;
 
     if (s.size() == 1 && !isdigit(s[0])) {
         _data._char = s[0];
@@ -66,13 +72,16 @@ bool handleChar(const std::string &s) {
 
 bool handleFloat(const std::string &s) {
     data    _data;
+    _data.overflow = false;
     char    *end;
     double   num = std::strtod(s.c_str(), &end);
 
-    if (*end == 'f' && *(end + 1) == '\0' && INT_MIN <= num && num <= INT_MAX) {
+    if (*end == 'f' && *(end + 1) == '\0') {
         _data._double = num;
         _data._float = static_cast<float>(num);
         _data._int = static_cast<int>(num);
+        if (num < INT_MIN || num > INT_MAX)
+            _data.overflow = true;
         display(_data);
         return (true);
     }
@@ -81,13 +90,16 @@ bool handleFloat(const std::string &s) {
 
 bool handleDouble(const std::string &s) {
     data    _data;
+    _data.overflow = false;
     char    *end;
     double  num = std::strtod(s.c_str(), &end);
 
-    if (*end == '\0' && INT_MIN <= num && num <= INT_MAX) {
+    if (*end == '\0') {
         _data._double = num;
         _data._float = static_cast<float>(num);
         _data._int = static_cast<int>(num);
+        if (num < INT_MIN || num > INT_MAX)
+            _data.overflow = true;
         display(_data);
         return (true);
     }
@@ -96,10 +108,14 @@ bool handleDouble(const std::string &s) {
 
 bool handleInt(const std::string &s) {
     data    _data;
+    _data.overflow = false;
     char    *end;
     long    num = std::strtol(s.c_str(), &end, 10);
 
-    if (*end == '\0' && INT_MIN <= num && num <= INT_MAX) {
+    if (*end == '\0') {
+        if (errno == ERANGE || num < INT_MIN || num > INT_MAX) {
+            return (false);
+        }
         _data._int = static_cast<int>(num);
         _data._float = static_cast<float>(num);
         _data._double = static_cast<double>(num);

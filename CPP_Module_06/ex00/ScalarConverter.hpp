@@ -25,6 +25,7 @@ struct data {
     int     _int;
     float   _float;
     double  _double;
+    bool    overflow;
 };
 
 class ScalarConverter {
