@@ -64,7 +64,9 @@
     "iomanip": "cpp",
     "deque": "cpp",
     "fstream": "cpp",
-    "stack": "cpp"
+    "stack": "cpp",
+    "filesystem": "cpp",
+    "__memory": "cpp"
   },
   "C_Cpp_Runner.msvcBatchPath": "",
   "C_Cpp_Runner.cCompilerPath": "clang",
