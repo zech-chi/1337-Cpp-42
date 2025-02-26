@@ -6,38 +6,16 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:01:55 by zech-chi          #+#    #+#             */
-/*   Updated: 2025/02/24 17:01:56 by zech-chi         ###   ########.fr       */
+/*   Updated: 2025/02/26 10:27:14 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 
-void    upper(char &c) {
-    if ('a' <= c && c <= 'z') {
-        c -= 32;
-    }
-}
-
-void    lower(char &c) {
-    if ('A' <= c && c <= 'Z') {
-        c += 32;
-    }
-}
-
-void    doAbs(int &x) {
-    if (x < 0) {
-        x *= -1;
-    }
-}
-
-void    displayInt(int *arr, int len) {
-    if (len == 0 || !arr)
-        return;
-    std::cout << "[" << arr[0];
-    for (int i = 1; i < len; i++) {
-        std::cout << ", " << arr[i];
-    }
-    std::cout << "]\n";
+template <typename T>
+void display(T &x ) {
+    std::cout << x << std::endl;
+    return ;
 }
 
 int main() {
@@ -45,33 +23,20 @@ int main() {
 
     char str[] = "zech-chi";
 
-    std::cout << "\n" << spliter << "\n\n";
-    std::cout << BOLD_YELLOW << "str   = " << str << "\n" << RESET;
+    std::cout << "\n" << spliter << "\n";
+    iter(str, sizeof(str), display<char>);
 
-    // upply upper to str
-    iter(str, sizeof(str), upper);
-    std::cout << BOLD_GREEN << "upper : " << str << "\n" << RESET;
-
-    // upply lower to str
-    iter(str, sizeof(str), lower);
-    std::cout << BOLD_GREEN << "lower : " << str << "\n" << RESET;
-
-    std::cout << "\n" << spliter << "\n\n";
+    std::cout << "\n" << spliter << "\n";
 
     int integers[] = {-1, -7, 1337};
+    iter(integers, sizeof(integers) / sizeof(int), display<int>);
 
-    std::cout << BOLD_YELLOW << "integers before : ";
-    displayInt(integers, sizeof(integers) / sizeof(int));
-    std::cout << RESET;
+    std::cout << "\n" << spliter << "\n";
+    
+    double doubles[] = {-1.55, -7.16, 1337.42};
+    iter(doubles, sizeof(doubles) / sizeof(double), display<const double>);
 
-    // upply doAbs to integers
-    iter(integers, sizeof(integers) / sizeof(int), doAbs);
-
-    std::cout << BOLD_GREEN << "integers afer   : ";
-    displayInt(integers, sizeof(integers) / sizeof(int));
-    std::cout << RESET;
-
-    std::cout << "\n" << spliter << "\n\n";
+    std::cout << "\n" << spliter << "\n";
     std::cout << BOLD_GREEN << "done!\n";
     return (0);
 }
