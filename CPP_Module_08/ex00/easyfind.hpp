@@ -16,14 +16,13 @@
 #include <vector>
 #include <deque>
 #include <list>
-#include <set>
 
 class NotFoundException : public std::exception {
     public : const char * what() const throw();
 };
 
-template <typename T> typename T::iterator easyfind(T &container, int z) {
-    typename T::iterator it = std::find(container.begin(), container.end(), z);
+template <typename T> typename T::const_iterator easyfind(const T &container, int z) {
+    typename T::const_iterator it = std::find(container.begin(), container.end(), z);
     if (it == container.end())
         throw NotFoundException();
     return (it); 

@@ -9,7 +9,7 @@ void display(T &container, std::string name) {
     std::cout << BOLD_YELLOW;
     std::cout << name << " = [";
     
-    for (typename T::iterator it = container.begin(); it != container.end(); it++) {
+    for (typename T::const_iterator it = container.begin(); it != container.end(); it++) {
         if (it != container.begin()) std::cout << ", ";
         std::cout << *it;
     }
@@ -24,7 +24,7 @@ void display(T &container, std::string name) {
 int main() {
     std::vector<int> v;
 
-    v.push_back(2);
+    v.push_back(/*test*/2);
     v.push_back(3);
     v.push_back(5);
     v.push_back(7);
@@ -36,7 +36,7 @@ int main() {
     int target = 1;
 
     try {
-        std::vector<int>::iterator it = easyfind(v, target);
+        std::vector<int>::const_iterator it = easyfind(v, target);
         std::cout << BOLD_GREEN << *it << " found\n" << RESET;  
     } catch (std::exception &e) {
         std::cerr << BOLD_RED << "Exception: " << target << " " << e.what() << "\n" << RESET;
@@ -45,7 +45,7 @@ int main() {
     target = 5;
 
     try {
-        std::vector<int>::iterator it = easyfind(v, target);
+        std::vector<int>::const_iterator it = easyfind(v, target);
         std::cout << BOLD_GREEN << *it << " found\n" << RESET;  
     } catch (std::exception &e) {
         std::cerr << BOLD_RED << "Exception: " << target << " " << e.what() << "\n" << RESET;
@@ -70,7 +70,7 @@ int main() {
 //     int target = 10;
 
 //     try {
-//         std::deque<int>::iterator it = easyfind(dq, target);
+//         std::deque<int>::const_iterator it = easyfind(dq, target);
 //         std::cout << BOLD_GREEN << *it << " found\n" << RESET;  
 //     } catch (std::exception &e) {
 //         std::cerr << BOLD_RED << "Exception: " << target << " " << e.what() << "\n" << RESET;
@@ -79,7 +79,7 @@ int main() {
 //     target = 5;
 
 //     try {
-//         std::deque<int>::iterator it = easyfind(dq, target);
+//         std::deque<int>::const_iterator it = easyfind(dq, target);
 //         std::cout << BOLD_GREEN << *it << " found\n" << RESET;  
 //     } catch (std::exception &e) {
 //         std::cerr << BOLD_RED << "Exception: " << target << " " << e.what() << "\n" << RESET;
@@ -104,7 +104,7 @@ int main() {
 //     int target = 5;
 
 //     try {
-//         std::list<int>::iterator it = easyfind(lst, target);
+//         std::list<int>::const_iterator it = easyfind(lst, target);
 //         std::cout << BOLD_GREEN << *it << " found\n" << RESET;  
 //     } catch (std::exception &e) {
 //         std::cerr << BOLD_RED << "Exception: " << target << " " << e.what() << "\n" << RESET;
@@ -113,40 +113,7 @@ int main() {
 //     target = 10;
 
 //     try {
-//         std::list<int>::iterator it = easyfind(lst, target);
-//         std::cout << BOLD_GREEN << *it << " found\n" << RESET;  
-//     } catch (std::exception &e) {
-//         std::cerr << BOLD_RED << "Exception: " << target << " " << e.what() << "\n" << RESET;
-//     }
-
-//     return (0);
-// }
-
-
-/*
-    set
-*/
-// int main() {
-//     std::set<int> st;
-
-//     st.insert(20);
-//     st.insert(30);
-//     st.insert(10);
-
-//     display(st, "set st");
-//     int target = 5;
-
-//     try {
-//         std::set<int>::iterator it = easyfind(st, target);
-//         std::cout << BOLD_GREEN << *it << " found\n" << RESET;  
-//     } catch (std::exception &e) {
-//         std::cerr << BOLD_RED << "Exception: " << target << " " << e.what() << "\n" << RESET;
-//     }
-
-//     target = 10;
-
-//     try {
-//         std::set<int>::iterator it = easyfind(st, target);
+//         std::list<int>::const_iterator it = easyfind(lst, target);
 //         std::cout << BOLD_GREEN << *it << " found\n" << RESET;  
 //     } catch (std::exception &e) {
 //         std::cerr << BOLD_RED << "Exception: " << target << " " << e.what() << "\n" << RESET;
