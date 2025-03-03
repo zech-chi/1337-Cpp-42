@@ -1,8 +1,8 @@
 #include "Span.hpp"
 
 int main() {
-    std::string spliter(42, '.');
-    spliter = std::string(BOLD_YELLOW) + "\n" + spliter + "\n\n" + std::string(RESET); 
+    std::string spliter;
+    spliter = std::string(BOLD_YELLOW) + "\n" + std::string(42, '.') + "\n\n" + std::string(RESET); 
 
     {
         Span    sp(3);
