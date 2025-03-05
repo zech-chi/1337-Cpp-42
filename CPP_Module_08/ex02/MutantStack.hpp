@@ -10,15 +10,53 @@
 // Reset Color
 #define RESET "\033[0m"
 
-#include <iostream>
+// debug  mod
+#define DEBUG true
 
-class MutantStack {
-    private:
+#include <iostream>
+#include <stack>
+
+template <typename T>
+class MutantStack : public std::stack<T> {
     public:
-        MutantStack();
-        MutantStack(const MutantStack& other);
-        MutantStack& operator = (const MutantStack& other);
-        ~MutantStack();
+        MutantStack() : std::stack<T>() {
+            DEBUG && std::cout << BOLD_YELLOW << "MutantStack constructor;\n" << RESET;
+        }
+
+        MutantStack(const MutantStack& other) : std::stack<T>(other) {
+            DEBUG && std::cout << BOLD_YELLOW << "MutantStack copy constructor;\n" << RESET;
+        }
+
+        MutantStack& operator = (const MutantStack& other) {
+            DEBUG && std::cout << BOLD_YELLOW << "MutantStack copy assignement\n" << RESET;
+            if (this != &other) {
+                std::stack<T>::operator=(other);
+            }
+            return (*this);
+        }
+
+        ~MutantStack() {
+            DEBUG && std::cout << BOLD_YELLOW << "MutantStack destructor\n" << RESET;
+        }
+
+        typedef typename std::stack<T>::container_type::iterator iterator;
+        // typedef typename std::stack<T>::container_type::const_iterator const_iterator;
+
+        iterator    begin() {
+            return (this->c.begin());
+        }
+
+        // const_iterator    begin() {
+        //     return (this->c.begin());
+        // }
+
+        iterator    end() {
+            return (this->c.end());
+        }
+
+        // const_iterator    end() {
+        //     return (this->c.end());
+        // }
 };
 
 #endif

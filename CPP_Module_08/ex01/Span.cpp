@@ -59,11 +59,14 @@ void    Span::addNumber(int z) {
         return ;
     }
     if (it != _data.begin()) {
-        diff = z - std::prev(it)->first;
+        --it;
+        diff = z - it->first;
         _shortestSpan = std::min(_shortestSpan, diff);
+        ++it;
     }
-    if (std::next(it) != _data.end()) {
-        diff = std::next(it)->first - z;
+    ++it;
+    if (it != _data.end()) {
+        diff = it->first - z;
         _shortestSpan = std::min(_shortestSpan, diff);
     }
 }
