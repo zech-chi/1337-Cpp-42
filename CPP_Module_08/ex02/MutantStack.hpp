@@ -41,7 +41,7 @@ class MutantStack : public std::stack<T> {
         }
 
         /*
-            Container: The underlying container that stores the elements. 
+            The underlying container that stores the elements. 
             By default, it is std::deque<T> for std::stack<T>
             By default, it is std::vector<T> for std::priority_queue
         */
