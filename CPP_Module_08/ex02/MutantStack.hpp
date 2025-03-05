@@ -11,7 +11,7 @@
 #define RESET "\033[0m"
 
 // debug  mod
-#define DEBUG true
+#define DEBUG false
 
 #include <iostream>
 #include <stack>
@@ -29,7 +29,7 @@ class MutantStack : public std::stack<T> {
         }
 
         MutantStack& operator = (const MutantStack& other) {
-            DEBUG && std::cout << BOLD_YELLOW << "MutantStack copy assignement\n" << RESET;
+            DEBUG && std::cout << BOLD_YELLOW << "MutantStack copy assignement;\n" << RESET;
             if (this != &other) {
                 std::stack<T>::operator=(other);
             }
@@ -37,7 +37,7 @@ class MutantStack : public std::stack<T> {
         }
 
         ~MutantStack() {
-            DEBUG && std::cout << BOLD_YELLOW << "MutantStack destructor\n" << RESET;
+            DEBUG && std::cout << BOLD_YELLOW << "MutantStack destructor;\n" << RESET;
         }
 
         /*
