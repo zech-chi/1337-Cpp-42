@@ -12,17 +12,14 @@
 
 #include <iostream>
 #include <climits>
-#include <map>
+#include <vector>
 #include <algorithm>
 
 class   Span {
     private:
-        std::map<int, int>  _data;
+        std::vector<int>    _data;
         unsigned int        _size;
         unsigned int        _capacity;
-        unsigned int        _shortestSpan;
-        int                 _min;
-        int                 _max;
 
     public:
         Span();
@@ -32,8 +29,8 @@ class   Span {
         ~Span();
 
         void            addNumber(int z);
-        unsigned int    shortestSpan() const;
-        unsigned int    longestSpan() const;
+        unsigned int    shortestSpan();
+        unsigned int    longestSpan();
 
         class SpanIsFullException : public std::exception {
             public: const char* what() const throw(); // virtual ???
