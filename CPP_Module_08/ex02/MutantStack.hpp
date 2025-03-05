@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <stack>
+#include <deque>
 
 template <typename T>
 class MutantStack : public std::stack<T> {
@@ -39,24 +40,31 @@ class MutantStack : public std::stack<T> {
             DEBUG && std::cout << BOLD_YELLOW << "MutantStack destructor\n" << RESET;
         }
 
-        typedef typename std::stack<T>::container_type::iterator iterator;
-        // typedef typename std::stack<T>::container_type::const_iterator const_iterator;
+        /*
+            Container: The underlying container that stores the elements. 
+            By default, it is std::deque<T> for std::stack<T>
+            By default, it is std::vector<T> for std::priority_queue
+        */
+        // typedef typename std::stack<T>::container_type Container;
+        typedef typename std::deque<T> Container;
+        typedef typename Container::iterator iterator;
+        typedef typename Container::const_iterator const_iterator;
 
-        iterator    begin() {
+        iterator          begin() {
             return (this->c.begin());
         }
 
-        // const_iterator    begin() {
-        //     return (this->c.begin());
-        // }
+        const_iterator    begin() const {
+            return (this->c.begin());
+        }
 
-        iterator    end() {
+        iterator          end() {
             return (this->c.end());
         }
 
-        // const_iterator    end() {
-        //     return (this->c.end());
-        // }
+        const_iterator    end() const {
+            return (this->c.end());
+        }
 };
 
 #endif
