@@ -14,6 +14,8 @@
 #include <climits>
 #include <vector>
 #include <algorithm>
+#include <cstdlib>
+#include <ctime>
 
 class   Span {
     private:
@@ -32,12 +34,20 @@ class   Span {
         unsigned int    shortestSpan();
         unsigned int    longestSpan();
 
+        template <typename Iterator> void  fillSpan(Iterator begin, Iterator end) {
+            while (begin != end) {
+                addNumber(*begin);
+                ++begin;
+            }
+        }
+
         class SpanIsFullException : public std::exception {
-            public: const char* what() const throw(); // virtual ???
+            public: const char* what() const throw();
         };
         class SpanCanNotBeFoundException : public std::exception {
-            public: const char* what() const throw(); // virtual ???
+            public: const char* what() const throw();
         };
+
 
         void    display() const;
 };
