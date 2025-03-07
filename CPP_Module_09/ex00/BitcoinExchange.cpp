@@ -169,6 +169,8 @@ void    BitcoinExchange::btc(const std::string& inputFilePath) {
                 std::cout << BOLD_GREEN;
                 std::cout << date << " => " << price << " = " << value * it->second << "\n";
                 std::cout << RESET;
+            } else {
+                std::cout << BOLD_YELLOW << "warning!\n" << RESET;
             }
 
         } catch (std::exception &e) {

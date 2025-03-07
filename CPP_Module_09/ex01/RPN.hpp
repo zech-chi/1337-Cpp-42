@@ -10,9 +10,12 @@
 // Reset Color
 #define RESET "\033[0m"
 
+#define DEBUG false
+
 #include<iostream>
 #include<stack>
 #include<exception>
+#include <sstream>
 
 int evalRPN(const std::string& tokens);
 
