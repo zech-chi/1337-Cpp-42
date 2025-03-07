@@ -37,10 +37,11 @@ static  double stringToFloat(const std::string& str) {
     float               val;
 
     iss >> val;
-    if (iss.fail()) {
-        std::cerr << BOLD_RED << "stringToFloat failed!\n" << RESET;
-        return (0.0f);
-    }
+    if (iss.fail() || !iss.eof())
+        throw std::runtime_error("Error: stringToFloat failed, or contains invalid characters!!\n");
+    if (val < 0)
+        throw std::runtime_error("Error: not a positive number.\n");
+
     return (val);
 }
 
@@ -49,10 +50,8 @@ static  int stringToInt(const std::string& str) {
     int                 val;
 
     iss >> val;
-    if (iss.fail()) {
-        std::cerr << BOLD_RED << "stringToInt failed!\n" << RESET;
-        return (0);
-    }
+    if (iss.fail())
+        throw std::runtime_error("Error: stringToInt failed!\n");
     return (val);
 }
 
@@ -110,27 +109,13 @@ BitcoinExchange::BitcoinExchange() {
             first_line = false;
             continue;
         }
-
-        // {
-        //     std::cout << "<" << line << ">\n";
-        // }
+        
         std::string date = line.substr(0, 10); key = daysSinceEpoch(stringToDate(date, line));
         std::string exchange_rate = line.substr(11); value = stringToFloat(exchange_rate);
         _data[key] = value;
-        // {
-        //     std::cout << BOLD_BLUE;
-        //     std::cout << "key   = " << key << "\n";
-        //     std::cout << "value = " << value << "\n";
-        //     std::cout << RESET;
-        // }
     }
+
     DEBUG && std::cout << BOLD_GREEN << "data.csv file processed successfully!\n" << RESET;
-    // {
-    //     for (std::map<int, float>::iterator it = _data.begin(); it != _data.end(); it++) {
-    //         std::cout << "(" << it->first << ": " << it->second << "), ";
-    //     }
-    //     std::cout << "\n";
-    // } 
     data.close();
 }
 
@@ -161,7 +146,6 @@ void    BitcoinExchange::btc(const std::string& inputFilePath) {
     DEBUG && std::cout << BOLD_GREEN << "data.csv file opened successfully!\n" << RESET;
 
     while (std::getline(inputFile, line)) {
-
         try {
             if (first_line) {
                 first_line = false;
@@ -171,14 +155,14 @@ void    BitcoinExchange::btc(const std::string& inputFilePath) {
             }
 
             size_t  pos = line.find('|');
-            if (pos == std::string::npos || pos != 11)
+            if (pos == std::string::npos || pos != 11 || pos == line.size() - 1 || line[pos + 1] != ' ')
                 throw std::runtime_error("Error: bad input => " + line + "\n");
                 
-            std::string date = line.substr(0, pos - 1);
-            std::string price = line.substr(pos + 2);
+            std::string date = line.substr(0, pos - 1); key = daysSinceEpoch(stringToDate(date, line));
+            std::string price = line.substr(pos + 2); value = stringToFloat(price);
 
-            key = daysSinceEpoch(stringToDate(date, line));
-            value = stringToFloat(price);
+            if (value > 1000.0f)
+                throw std::runtime_error("Error: too large a number.\n");
 
             std::map<int, float>::iterator it = _data.lower_bound(key);
             if (it != _data.end()) {

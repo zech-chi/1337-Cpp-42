@@ -10,7 +10,7 @@
 // Reset Color
 #define RESET "\033[0m"
 
-#define DEBUG true
+#define DEBUG false
 #define MAX_YEAR 2100
 #define MIN_YEAR 2009
 
