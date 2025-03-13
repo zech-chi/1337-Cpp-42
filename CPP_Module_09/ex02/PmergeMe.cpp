@@ -75,7 +75,7 @@ void    PmergeMe::display() const {
     std::cout << "\n";
 
     std::cout << "Time to process a range of " << BOLD_YELLOW << _vBefore.size() << RESET << " elements with std::vector : " << BOLD_YELLOW << _vecTime << RESET << " µs\n";
-    std::cout << "Time to process a range of " << BOLD_YELLOW << _dBefore.size() << RESET << " elements with std::vector : " << BOLD_YELLOW << _deqTime << RESET << " µs\n";
+    std::cout << "Time to process a range of " << BOLD_YELLOW << _dBefore.size() << RESET << " elements with std::deque : " << BOLD_YELLOW << _deqTime << RESET << " µs\n";
 }
 
 std::vector<int> PmergeMe::sortVec(const std::vector<int>& items) {
