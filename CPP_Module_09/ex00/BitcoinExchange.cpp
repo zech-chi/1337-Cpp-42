@@ -140,7 +140,7 @@ void    BitcoinExchange::btc(const std::string& inputFilePath) {
     float       value;
     bool        first_line = true;
 
-    std::ifstream inputFile(inputFilePath);
+    std::ifstream inputFile(inputFilePath.c_str());
     if (!inputFile)
         throw std::runtime_error("Error: could not open " + inputFilePath + " file!\n");
     DEBUG && std::cout << BOLD_GREEN << "data.csv file opened successfully!\n" << RESET;
