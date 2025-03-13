@@ -5,7 +5,7 @@ int main(int ac, char **av) {
         if (ac != 2)
             throw std::runtime_error("Error\n");
         std::string tokens = av[1];
-        int res = evalRPN(tokens);
+        double res = evalRPN(tokens);
         std::cout << BOLD_GREEN << res << "\n" << RESET;
     } catch (std::exception &e) {
         std::cerr << BOLD_RED << e.what() << RESET;

@@ -1,6 +1,6 @@
 #include "RPN.hpp"
 
-int operation(int n, int m, char op) {
+double operation(double n, double m, char op) {
     if (op == '+') return (m + n);
     if (op == '-') return (m - n);
     if (op == '*') return (m * n);
@@ -8,8 +8,8 @@ int operation(int n, int m, char op) {
     return (m / n);
 }
 
-int evalRPN(const std::string& tokens) {
-    std::stack<int> st;
+double evalRPN(const std::string& tokens) {
+    std::stack<double> st;
     std::string ops = "+-*/";
 
     if (tokens.empty())
@@ -28,8 +28,8 @@ int evalRPN(const std::string& tokens) {
         } else if (ops.find(c) != std::string::npos) {
             if (st.size() < 2)
                 throw std::runtime_error("Error\n");
-            int n = st.top(); st.pop();
-            int m = st.top(); st.pop();
+            double n = st.top(); st.pop();
+            double m = st.top(); st.pop();
             st.push(operation(n, m, c));
         } else {
             throw std::runtime_error("Error\n");

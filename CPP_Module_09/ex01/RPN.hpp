@@ -17,6 +17,6 @@
 #include<exception>
 #include <sstream>
 
-int evalRPN(const std::string& tokens);
+double evalRPN(const std::string& tokens);
 
 #endif
