@@ -47,20 +47,6 @@ PmergeMe::PmergeMe() {
     DEBUG && std::cout << BOLD_YELLOW << "PmergeMe default constructor;\n" << RESET;
 }
 
-PmergeMe::PmergeMe(int ac, char **av) {
-    DEBUG && std::cout << BOLD_YELLOW << "PmergeMe constructor;\n" << RESET;
-    for (int i = 1; i < ac; i++) {
-        std::string token = av[i];
-        std::istringstream  iss(token);
-        int z;
-        iss >> z;
-        if (iss.fail() || !iss.eof() || z < 0)
-            throw std::runtime_error("Error\n");
-        _vBefore.push_back(z);
-    }
-    _vAfter = _vBefore;
-}
-
 PmergeMe::PmergeMe(const PmergeMe& other) {
     (void)(other);
     DEBUG && std::cout << BOLD_YELLOW << "PmergeMe copy constructor;\n" << RESET;
@@ -83,10 +69,13 @@ void    PmergeMe::display() const {
         std::cout << _vBefore[i] << " ";
     std::cout << "\n";
 
-    std::cout << BOLD_GREEN << "Before: " << RESET;
+    std::cout << BOLD_GREEN << "After : " << RESET;
     for (size_t i = 0; i < _vAfter.size(); i++)
         std::cout << _vAfter[i] << " ";
     std::cout << "\n";
+
+    std::cout << "Time to process a range of " << BOLD_YELLOW << _vBefore.size() << RESET << " elements with std::vector : " << BOLD_YELLOW << _vecTime << RESET << " µs\n";
+    std::cout << "Time to process a range of " << BOLD_YELLOW << _dBefore.size() << RESET << " elements with std::vector : " << BOLD_YELLOW << _deqTime << RESET << " µs\n";
 }
 
 std::vector<int> PmergeMe::sortVec(std::vector<int> items) {
@@ -162,16 +151,49 @@ std::deque<int> PmergeMe::sortDeq(std::deque<int> items) {
 }
 
 
-void    PmergeMe::sort() {
+void    PmergeMe::sort(int ac, char **av) {
     struct timeval tStart, tEnd;
-    size_t         diff;
 
+    /*
+        * vector
+    */
     if (gettimeofday(&tStart, NULL))
         throw std::runtime_error("Error\n");
+
+    for (int i = 1; i < ac; i++) {
+        std::string token = av[i];
+        std::istringstream  iss(token);
+        int z;
+        iss >> z;
+        if (iss.fail() || !iss.eof() || z < 0)
+            throw std::runtime_error("Error\n");
+        _vBefore.push_back(z);
+    }
     _vAfter = sortVec(_vBefore);
+
     if (gettimeofday(&tEnd, NULL))
         throw std::runtime_error("Error\n");
+    _vecTime = (tEnd.tv_sec - tStart.tv_sec) * 1e6 + (tEnd.tv_usec - tStart.tv_usec);
 
-    diff = (tEnd.tv_sec - tStart.tv_sec) * 1e6 + (tEnd.tv_usec - tStart.tv_usec);
-    std::cout << "Time to process a range of " << _vBefore.size() << " elements with std::vector : " << diff << " µs\n";
+    /*
+        * deque
+    */
+    if (gettimeofday(&tStart, NULL))
+        throw std::runtime_error("Error\n");
+
+    for (int i = 1; i < ac; i++) {
+        std::string token = av[i];
+        std::istringstream  iss(token);
+        int z;
+        iss >> z;
+        if (iss.fail() || !iss.eof() || z < 0)
+            throw std::runtime_error("Error\n");
+        _dBefore.push_back(z);
+    }
+    _dAfter = sortDeq(_dBefore);
+
+    if (gettimeofday(&tEnd, NULL))
+        throw std::runtime_error("Error\n");
+    _deqTime = (tEnd.tv_sec - tStart.tv_sec) * 1e6 + (tEnd.tv_usec - tStart.tv_usec);
+
 }

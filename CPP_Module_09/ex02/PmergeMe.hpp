@@ -27,16 +27,19 @@ class   PmergeMe {
     private:
         std::vector<int> _vBefore;
         std::vector<int> _vAfter;
+        std::deque<int>  _dBefore;
+        std::deque<int>  _dAfter;
+        size_t           _vecTime;
+        size_t           _deqTime;
 
     public:
         PmergeMe();
-        PmergeMe(int ac, char **av);
         PmergeMe(const PmergeMe& other);
         PmergeMe& operator = (const PmergeMe& other);
         ~PmergeMe();
 
         void    display() const;
-        void    sort();
+        void    sort(int ac, char **av);
         std::vector<int> sortVec(std::vector<int> items);
         std::deque<int> sortDeq(std::deque<int> items);
         // void    SortDeq();

@@ -23,9 +23,9 @@
 
 int main(int ac, char **av) {
     try {
-        PmergeMe pmm(ac, av);
-        pmm.sort();
-        // pmm.display();
+        PmergeMe pmm;
+        pmm.sort(ac, av);
+        pmm.display();
     } catch (std::exception &e) {
         std::cerr << BOLD_RED << e.what() << RESET;
     }
