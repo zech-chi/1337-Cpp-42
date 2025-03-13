@@ -34,4 +34,5 @@ class   PmergeMe {
         void    display() const;
 };
 
+size_t  Jacobsthal(size_t n);
 #endif

@@ -1,5 +1,21 @@
 #include "PmergeMe.hpp"
 
+size_t  Jacobsthal(size_t n) {
+    if (n <= 1)
+        return (n);
+    size_t  prevJ1 = 1;
+    size_t  prevJ2 = 0;
+    size_t  curJ;
+
+    for (size_t i = 2; i <= n; i++) {
+        curJ = prevJ1 + 2 * prevJ2;
+        prevJ2 = prevJ1;
+        prevJ1 = curJ;
+    }
+
+    return (curJ);
+}
+
 PmergeMe::PmergeMe() {
     DEBUG && std::cout << BOLD_YELLOW << "PmergeMe default constructor;\n" << RESET;
 }
@@ -33,6 +49,7 @@ PmergeMe::~PmergeMe() {
     DEBUG && std::cout << BOLD_YELLOW << "PmergeMe destructor;\n" << RESET;
 }
 
+
 void    PmergeMe::display() const {
     std::cout << BOLD_RED << "Before: " << RESET;
     for (size_t i = 0; i < _vBefore.size(); i++)
@@ -43,6 +60,4 @@ void    PmergeMe::display() const {
     for (size_t i = 0; i < _vAfter.size(); i++)
         std::cout << _vAfter[i] << " ";
     std::cout << "\n";
-
-
 }
