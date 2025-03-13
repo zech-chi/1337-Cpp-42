@@ -15,9 +15,13 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <deque>
 #include <sstream>
 #include <stdexcept>
 #include <exception>
+#include <utility> // for pair
+#include <sys/time.h>
+#include <iomanip>
 
 class   PmergeMe {
     private:
@@ -32,7 +36,13 @@ class   PmergeMe {
         ~PmergeMe();
 
         void    display() const;
+        void    sort();
+        std::vector<int> sortVec(std::vector<int> items);
+        std::deque<int> sortDeq(std::deque<int> items);
+        // void    SortDeq();
 };
 
 size_t  Jacobsthal(size_t n);
+std::vector<size_t> generateJacobsthalSequence(size_t size);
+
 #endif
