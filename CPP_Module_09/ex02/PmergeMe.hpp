@@ -40,8 +40,8 @@ class   PmergeMe {
 
         void    display() const;
         void    sort(int ac, char **av);
-        std::vector<int> sortVec(std::vector<int> items);
-        std::deque<int> sortDeq(std::deque<int> items);
+        std::vector<int> sortVec(const std::vector<int>& items);
+        std::deque<int> sortDeq(const std::deque<int>& items);
         // void    SortDeq();
 };
 

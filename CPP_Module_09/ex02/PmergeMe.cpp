@@ -78,7 +78,7 @@ void    PmergeMe::display() const {
     std::cout << "Time to process a range of " << BOLD_YELLOW << _dBefore.size() << RESET << " elements with std::vector : " << BOLD_YELLOW << _deqTime << RESET << " µs\n";
 }
 
-std::vector<int> PmergeMe::sortVec(std::vector<int> items) {
+std::vector<int> PmergeMe::sortVec(const std::vector<int>& items) {
     if (items.size() < 2)
         return (items);
 
@@ -114,12 +114,11 @@ std::vector<int> PmergeMe::sortVec(std::vector<int> items) {
     return (main);
 }
 
-std::deque<int> PmergeMe::sortDeq(std::deque<int> items) {
+std::deque<int> PmergeMe::sortDeq(const std::deque<int>& items) {
     if (items.size() < 2)
         return (items);
 
     std::deque<int> main, pend;
-    int lastItem = -1;
 
     for (size_t i = 1; i < items.size(); i += 2) {
         if (items[i] > items[i - 1]) {
@@ -131,11 +130,9 @@ std::deque<int> PmergeMe::sortDeq(std::deque<int> items) {
         }
     }
     if (items.size() % 2)
-        lastItem = items.back();
+        pend.push_back(items.back());
 
     main = sortDeq(main);
-    if (lastItem != -1)
-        pend.push_back(lastItem);
 
     std::vector<size_t> seqJ = generateJacobsthalSequence(pend.size());
     seqJ.push_back(1);
