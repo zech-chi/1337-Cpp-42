@@ -48,13 +48,20 @@ PmergeMe::PmergeMe() {
 }
 
 PmergeMe::PmergeMe(const PmergeMe& other) {
-    (void)(other);
     DEBUG && std::cout << BOLD_YELLOW << "PmergeMe copy constructor;\n" << RESET;
+    *this = other;
 }
 
 PmergeMe& PmergeMe::operator = (const PmergeMe& other) {
-    (void)(other);
     DEBUG && std::cout << BOLD_YELLOW << "PmergeMe copy assignement;\n" << RESET;
+    if (this != &other) {
+        _vBefore = other._vBefore;
+        _vAfter = other._vAfter;
+        _dBefore = other._dBefore;
+        _dAfter = other._dAfter;
+        _vecTime = other._vecTime;
+        _deqTime = other._deqTime;
+    }
     return (*this);
 }
 
