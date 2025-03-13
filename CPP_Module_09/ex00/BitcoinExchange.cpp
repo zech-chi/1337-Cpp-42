@@ -170,7 +170,7 @@ void    BitcoinExchange::btc(const std::string& inputFilePath) {
                 std::cout << date << " => " << price << " = " << value * it->second << "\n";
                 std::cout << RESET;
             } else {
-                std::cout << BOLD_YELLOW << "warning!\n" << RESET;
+                throw std::runtime_error("Error: bad date (date too long) => " + line + "\n");
             }
 
         } catch (std::exception &e) {
